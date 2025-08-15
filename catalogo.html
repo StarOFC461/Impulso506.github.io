@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Catálogo - Con Impulso</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body { background-color: #fdf6ec; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .grid-img { cursor: pointer; border-radius: 8px; object-fit: cover; transition: transform 0.3s; }
+    .grid-img:hover { transform: scale(1.05); }
+
+    /* Lightbox para ver imágenes grandes */
+    .lightbox { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); justify-con>
+    .lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; object-fit: contain; }
+    .lightbox.show { display: flex; }
+
+    /* Botón de volver al inicio */
+    .btn-back { margin: 20px; padding: 10px 20px; background: #d88c5f; color: white; font-weight: bold; border-radius: 6px; text-dec>
+    .btn-back:hover { background: #c57a4d; }
+  </style>
+</head>
+<body class="text-gray-800">
+                                                                                                                                       <!-- Header -->
+  <header class="fixed w-full bg-[#fff8f0] shadow-md z-50">
+    <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+      <div class="flex items-center space-x-4">
+        <img src="https://i.ibb.co/6JVtxf6b/IMG-20250709-WA0013.jpg" alt="Logo" class="w-12 h-12 rounded-full">
+        <h1 class="text-3xl font-extrabold text-[#a65f3d]">Con Impulso</h1>
+      </div>
+    </div>
+  </header>
+
+  <!-- Sección Catálogo -->
+  <section class="pt-28 pb-10 text-center px-4">
+    <h2 class="text-5xl font-extrabold text-[#a65f3d] mb-4">Catálogo</h2>
+    <p class="text-xl text-[#8b5c42] mb-4">Día de las madres entre muchas más cosas aquí en Con Impulso</p>
+    <a href="index.html" class="btn-back">← Volver al inicio</a>
+  </section>
+
+  <!-- Sección de imágenes existentes -->
+  <section class="py-10 px-6 max-w-5xl mx-auto grid gap-6 md:grid-cols-2 sm:grid-cols-1">
+    <!-- NS: Imágenes grandes del catálogo -->
+    <img src="https://i.postimg.cc/02SzBjtb/IMG-20250815-WA0006.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+    <img src="https://i.postimg.cc/9XRttG79/IMG-20250815-WA0007.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+    <img src="https://i.postimg.cc/prHTjbjq/IMG-20250815-WA0008.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+    <img src="https://i.postimg.cc/kg8pj0Rx/IMG-20250815-WA0009-1.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+    <img src="https://i.postimg.cc/J05bDQsH/IMG-20250815-WA0010.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+  </section>
+
+  <!-- Nuevo texto y sección de más imágenes -->
+  <section class="py-10 px-6 max-w-5xl mx-auto text-center">
+    <!-- Texto que indica la nueva sección -->
+    <p class="text-2xl text-[#a65f3d] font-semibold mb-6">Más trabajos y pijamas</p>
+
+    <!-- Grid de imágenes adicionales -->
+    <div class="grid gap-6 md:grid-cols-2 sm:grid-cols-1">
+      <img src="https://i.postimg.cc/RFL0Bp38/IMG-20250815-WA0011-1.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+      <img src="https://i.postimg.cc/nL8VQfBg/IMG-20250815-WA0013.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+      <img src="https://i.postimg.cc/brvqjyfD/IMG-20250815-WA0012.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+      <img src="https://i.postimg.cc/1R2snZGS/IMG-20250815-WA0014.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+      <img src="https://i.postimg.cc/Y03BnjnL/IMG-20250815-WA0016.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+      <img src="https://i.postimg.cc/NFbZ8SF1/IMG-20250815-WA0017.jpg" class="grid-img w-full h-auto" onclick="openLightbox(this)">
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <img id="lightbox-img" src="" alt="Imagen grande">
+  </div>
+
+  <!-- Script para lightbox -->
+  <script>
+    function openLightbox(img) {
+      const lb = document.getElementById('lightbox');
+      const lbImg = document.getElementById('lightbox-img');
+      lbImg.src = img.src;
+      lb.classList.add('show');
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('show');
+    }
+  </script>
+
+</body>
+</html>
