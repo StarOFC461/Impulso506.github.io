@@ -27,13 +27,77 @@
     .btn-terra:hover {
       background: #c57a4d;
     }
+    /* Menú lateral animado */
+    .menu {
+      position: fixed;
+      top: 0;
+      right: -250px;
+      width: 250px;
+      height: 100%;
+      background: #d88c5f;
+      padding-top: 60px;
+      transition: right 0.5s ease;
+      z-index: 10000;
+    }
+    .menu.open {
+      right: 0;
+    }
+    .menu a {
+      display: block;
+      padding: 15px 20px;
+      text-decoration: none;
+      color: #fff8f0; /* color claro por defecto */
+      font-weight: bold;
+      transition: background 0.3s, color 0.3s;
+    }
+    .menu a:hover,
+    .menu a:active {
+      background: #fff8f0;
+      color: #8b5c42; /* café cuando pasa el mouse o clic */
+    }
+    .dots {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      z-index: 10001;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .dots span {
+      display: block;
+      width: 6px;
+      height: 6px;
+      background: #8b5c42;
+      border-radius: 50%;
+      margin: auto;
+    }
   </style>
 </head>
 <body class="text-gray-800">
+
+  <!-- Botón flotante WhatsApp -->
   <a href="https://wa.me/50670070397" target="_blank" class="floating-wsp">
     <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" class="w-14 h-14" />
   </a>
 
+  <!-- Botón de 3 puntitos -->
+  <div class="dots" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Menú lateral -->
+  <div class="menu" id="sideMenu">
+    <a href="catalogo.html">Catálogo</a>
+    <a href="informacion.html">Información</a>
+  </div>
+
+  <!-- HEADER -->
   <header class="fixed w-full bg-[#fff8f0] shadow-md z-50">
     <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
       <div class="flex items-center space-x-4">
@@ -51,6 +115,7 @@
     </div>
   </header>
 
+  <!-- CONTENIDO ORIGINAL -->
   <section id="inicio" class="pt-28 pb-20 bg-gradient-to-r from-[#fff5e1] to-[#fce8d5] text-center px-4">
     <h2 class="text-5xl md:text-6xl font-extrabold text-[#a65f3d] mb-4">Diseños con <span class="text-[#8b5c42]">amor</span> y creatividad</h2>
     <p class="text-xl md:text-2xl text-[#8b5c42] mb-10">Costura, personalización, sublimación y confección personalizada.</p>
@@ -61,15 +126,15 @@
     <h3 class="text-4xl font-extrabold text-[#a65f3d] mb-12 text-center">Nuestros Servicios</h3>
     <div class="grid gap-12 md:grid-cols-3">
       <div class="bg-[#fff0e0] p-8 rounded-xl shadow-lg">
-        <h4 class="text-2xl font-bold mb-4 text-[#a65f3d]">👗 Confección</h4>
+        <h4 class="text-2xl font-bold mb-4 text-[#a65f3d]">Confección</h4>
         <p>Prendas únicas, uniformes, ropa escolar, delantales y más.</p>
       </div>
       <div class="bg-[#fff0e0] p-8 rounded-xl shadow-lg">
-        <h4 class="text-2xl font-bold mb-4 text-[#a65f3d]">☕ Sublimación</h4>
+        <h4 class="text-2xl font-bold mb-4 text-[#a65f3d]">Sublimación</h4>
         <p>Tazas, camisetas, cojines, termos y más personalizados.</p>
       </div>
       <div class="bg-[#fff0e0] p-8 rounded-xl shadow-lg">
-        <h4 class="text-2xl font-bold mb-4 text-[#a65f3d]">🎨 Personalización</h4>
+        <h4 class="text-2xl font-bold mb-4 text-[#a65f3d]">Personalización</h4>
         <p>Diseños únicos y creativos para tus prendas y accesorios.</p>
       </div>
     </div>
@@ -91,26 +156,7 @@
 
   <section id="catalogo" class="py-20 px-6 max-w-7xl mx-auto">
     <h3 class="text-4xl font-extrabold text-[#a65f3d] mb-12 text-center">Catálogo</h3>
-    <div class="grid md:grid-cols-3 gap-10">
-      <div class="bg-[#fff0e0] rounded-lg p-5 shadow-md">
-        <img src="https://i.ibb.co/3ygHQYdk/pijama-perso.jpg" class="rounded mb-4" alt="Pijama Personalizada" />
-        <h5 class="text-xl font-semibold mb-2">👚 Pijama Personalizada Extra</h5>
-        <p class="mb-4">Diseños únicos y personalizados.</p>
-        <a href="https://wa.me/50670070397?text=Hola,%20quiero%20una%20pijama%20personalizada%20extra." target="_blank" class="btn-terra text-white px-4 py-2 rounded">Solicitar</a>
-      </div>
-      <div class="bg-[#fff0e0] rounded-lg p-5 shadow-md">
-        <img src="https://i.postimg.cc/y34hN36S/image.jpg" class="rounded mb-4" alt="Taza" />
-        <h5 class="text-xl font-semibold mb-2">☕ Tazas</h5>
-        <p class="mb-4">Diseños creativos, ideales para regalos.</p>
-        <a href="https://wa.me/50670070397?text=Hola,%20quiero%20una%20taza%20personalizada." target="_blank" class="btn-terra text-white px-4 py-2 rounded">Solicitar</a>
-      </div>
-      <div class="bg-[#fff0e0] rounded-lg p-5 shadow-md">
-        <img src="https://i.postimg.cc/K4ksvtf4/image.jpg" class="rounded mb-4" alt="Agenda" />
-        <h5 class="text-xl font-semibold mb-2">📓 Agendas</h5>
-        <p class="mb-4">Organiza tu vida con estilo único.</p>
-        <a href="https://wa.me/50670070397?text=Hola,%20quiero%20una%20agenda%20personalizada." target="_blank" class="btn-terra text-white px-4 py-2 rounded">Solicitar</a>
-      </div>
-    </div>
+    <p class="text-center text-[#8b5c42]">Consulta nuestro catálogo completo en la página dedicada.</p>
   </section>
 
   <section id="nosotros" class="py-20 px-6 bg-[#fce8d5] max-w-4xl mx-auto">
@@ -123,13 +169,14 @@
     <div class="text-center space-y-4 text-[#8b5c42]">
       <p>📞 WhatsApp: <a href="https://wa.me/50670070397" class="underline">+506 7007 0397</a></p>
       <p>📧 Email: <a href="mailto:creacionesconimpulso@gmail.com" class="underline">creacionesconimpulso@gmail.com</a></p>
-      <p>📸 Instagram: <a href="https://www.instagram.com/conimpulso506?igsh=ZDk0d2NpM2l4a3lw" target="_blank" class="underline">@conimpulso506</a></p>
+      <p>📸 Instagram: <a href="https://www.instagram.com/conimpulso506" target="_blank" class="underline">@conimpulso506</a></p>
     </div>
   </section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init();
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("open");
+    }
   </script>
 </body>
 </html>
